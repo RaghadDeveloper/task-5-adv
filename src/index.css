@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --color-primary: #feaf00;
+  --color-primary-dark: #ff8500;
+  --color-primary-light: #f8d442;
+  --color-black: #000000;
+  --color-black-transparent: #00000080;
+  --color-white: #ffffff;
+  --color-off-white: #fdfdfd;
+  --color-ghost-white: #f8f8ff;
+  --color-gray-darkest: #282828;
+  --color-gray-darker: #333333;
+  --color-gray-dark: #6c6c6c;
+  --color-gray-medium: #8080808c;
+  --color-gray: #c4c4c4;
+  --color-gray-light: #cdcdcd;
+  --color-gray-lighter: #e5e5e5;
+  --color-gray-lightest: #f1f1f1;
+  --color-cream: #f2eae1;
+  --color-cream-transparent: #f2eae1b2;
+  --color-error: #fe0000;
+  --color-overlay: #384eb74d;
+}
