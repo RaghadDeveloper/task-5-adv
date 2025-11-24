@@ -1,17 +1,17 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 
 const AppLayout = () => {
   return (
-    <Row className="g-0">
+    <Row className="g-0 vh-100">
       <Col sm={3} className="bg-color-cream vh-100">
         <Sidebar />
       </Col>
-      <Col sm={9}>
-        <main className="p-3">
+      <Col sm={9} className="main">
+        <Container className="p-3 d-flex flex-column align-items-center vh-100">
           <Outlet />
-        </main>
+        </Container>
       </Col>
     </Row>
   );
