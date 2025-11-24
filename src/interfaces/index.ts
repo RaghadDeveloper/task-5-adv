@@ -3,6 +3,14 @@ export interface LoginInterface {
   password: string;
 }
 
+export interface SignUpInterface extends LoginInterface {
+  first_name: string;
+  last_name: string;
+  password_confirmation: string;
+  profile_image: File;
+  user_name: string;
+}
+
 export interface AuthLayoutProps {
   title: string;
   subTitle: string;
@@ -11,7 +19,7 @@ export interface AuthLayoutProps {
 
 export interface FormProps {
   inputs: Array<InputField>;
-  submitData: (data: LoginInterface) => void;
+  submitData: (data: SignUpInterface) => void;
   loading: boolean;
   error: string;
   btnText: string;
@@ -24,8 +32,9 @@ export interface ButtonProps {
 }
 
 export interface InputField {
-  label: string;
+  label?: string;
   type: string;
-  placeholder: string;
+  placeholder?: string;
   name: string;
+  row?: boolean;
 }
