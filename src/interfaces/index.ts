@@ -38,3 +38,9 @@ export interface InputField {
   name: string;
   row?: boolean;
 }
+
+export interface NavItemProps {
+  icon: string;
+  text: string;
+  path: string;
+}

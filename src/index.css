@@ -43,6 +43,10 @@
   background-color: var(--color-primary) !important;
 }
 
+.bg-color-cream {
+  background-color: var(--color-cream) !important;
+}
+
 .border-gray-lighter {
   border: 1px solid var(--color-gray-lighter) !important;
 }
@@ -61,4 +65,12 @@
 
 .w-476 {
   width: 476px !important;
+}
+
+.bl-primary-light {
+  border-left: 6px solid var(--color-primary-light) !important;
+}
+
+.profile-img {
+  width: 128px;
 }

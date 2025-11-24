@@ -22,6 +22,8 @@ const Login = () => {
       })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("profile_image", res.data.user.profile_image_url);
+        localStorage.setItem("name", res.data.user_name);
         window.location.href = "/";
       })
       .catch((err) => {
