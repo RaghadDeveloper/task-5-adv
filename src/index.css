@@ -1,3 +1,4 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
@@ -28,4 +29,36 @@
   --color-cream-transparent: #f2eae1b2;
   --color-error: #fe0000;
   --color-overlay: #384eb74d;
+}
+
+.bg-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-dark),
+    var(--color-primary-light)
+  ) !important;
+}
+
+.bg-color-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.border-gray-lighter {
+  border: 1px solid var(--color-gray-lighter) !important;
+}
+
+.text-gray-dark {
+  color: var(--color-gray-dark);
+}
+
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.w-fit {
+  width: fit-content !important;
+}
+
+.w-476 {
+  width: 476px !important;
 }
