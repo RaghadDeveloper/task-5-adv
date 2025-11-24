@@ -27,7 +27,7 @@ const SignUp = () => {
     axios
       .post("https://dashboard-i552.onrender.com/api/register", formData)
       .then((res) => {
-        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("token", res.data.data.token);
         window.location.href = "/";
       })
       .catch((err) => {
