@@ -51,6 +51,11 @@
   background-color: var(--color-cream) !important;
 }
 
+.bg-blur {
+  background-color: var(--color-black-transparent);
+  backdrop-filter: blur(30px);
+}
+
 .border-gray-lighter {
   border: 1px solid var(--color-gray-lighter) !important;
 }

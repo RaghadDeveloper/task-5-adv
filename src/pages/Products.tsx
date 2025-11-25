@@ -37,9 +37,9 @@ const Products = () => {
         <PrimaryButton text="ADD NEW PRODUCT" type="button" />
       </div>
 
-      <Row className="gap-5 align-items-center justify-content-center mb-5">
+      <Row className="row-gap-5 align-items-center justify-content-center mb-5">
         {products.map((product) => (
-          <Col sm={12} md={2} key={product.id}>
+          <Col sm={12} md={4} lg={3} key={product.id}>
             <ProductCard product={product} />
           </Col>
         ))}
