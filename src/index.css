@@ -64,6 +64,10 @@
   color: var(--color-gray-dark);
 }
 
+.text-gray-medium {
+  color: var(--color-gray-medium);
+}
+
 .text-primary {
   color: var(--color-primary) !important;
 }
@@ -106,4 +110,15 @@
 
 .overly:hover {
   opacity: 1;
+}
+
+.product-img {
+  width: 373px;
+  height: 373px;
+  object-fit: cover;
+}
+
+.back-icon {
+  width: 40px;
+  cursor: pointer;
 }

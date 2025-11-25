@@ -2,8 +2,10 @@ import axios from "axios";
 import type { ProductType } from "../interfaces";
 import PrimaryButton from "./PrimaryButton";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }: { product: ProductType }) => {
+  const navigate = useNavigate();
   const [imgSrc, setImgSrc] = useState(product.image_url);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
@@ -28,7 +30,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
 
   return (
     <>
-      <div className="position-relative product-card rounded-4 d-flex align-items-center overflow-hidden">
+      <div
+        className="position-relative product-card rounded-4 d-flex align-items-center overflow-hidden"
+        onClick={() => navigate(`${product.id}`)}
+      >
         <img src={imgSrc} alt="product image" className="h-100 mx-auto" />
         <div className="overly position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center gap-4 p-3">
           <h5 className="text-center mt-3 fs-3">{product.name}</h5>
@@ -37,7 +42,10 @@ const ProductCard = ({ product }: { product: ProductType }) => {
             <PrimaryButton
               text="Delete"
               type="button"
-              onClick={() => setShowDeleteConfirm(true)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowDeleteConfirm(true);
+              }}
             />
           </div>
         </div>

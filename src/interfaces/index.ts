@@ -29,7 +29,7 @@ export interface ButtonProps {
   text: string;
   type: "button" | "submit" | "reset";
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface InputField {
@@ -53,4 +53,9 @@ export interface ProductType {
   image_url: string;
   created_at: string;
   updated_at: string;
+}
+
+export interface ProductInfoProps {
+  label: string;
+  value: string;
 }

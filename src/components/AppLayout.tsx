@@ -9,7 +9,7 @@ const AppLayout = () => {
         <Sidebar />
       </Col>
       <Col sm={9} className="main">
-        <Container className="p-3 d-flex flex-column align-items-center vh-100">
+        <Container className="py-3 px-5 d-flex flex-column align-items-center vh-100">
           <Outlet />
         </Container>
       </Col>
