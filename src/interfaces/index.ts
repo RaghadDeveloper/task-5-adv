@@ -59,3 +59,15 @@ export interface ProductInfoProps {
   label: string;
   value: string;
 }
+
+export interface ItemFormData {
+  name: string;
+  price: string;
+  image: File | string;
+}
+
+export interface ItemFormProps {
+  submitData: (data: ItemFormData) => void;
+  loading: boolean;
+  error: string | null;
+}

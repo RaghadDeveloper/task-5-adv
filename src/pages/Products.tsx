@@ -5,8 +5,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import type { ProductType } from "../interfaces";
 import ProductCard from "../components/ProductCard";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState<Array<ProductType>>([]);
 
   useEffect(() => {
@@ -34,7 +36,13 @@ const Products = () => {
       </InputGroup>
 
       <div className="d-flex justify-content-end mb-5">
-        <PrimaryButton text="ADD NEW PRODUCT" type="button" />
+        <PrimaryButton
+          text="ADD NEW PRODUCT"
+          type="button"
+          onClick={() => {
+            navigate("add-item");
+          }}
+        />
       </div>
 
       <Row className="row-gap-5 align-items-center justify-content-center mb-5">

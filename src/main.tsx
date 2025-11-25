@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp";
 import AppLayout from "./components/AppLayout";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
+import AddItem from "./pages/AddItem";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
           {
             path: ":id",
             element: <ProductDetails />,
+          },
+          {
+            path: "add-item",
+            element: <AddItem />,
           },
         ],
       },
