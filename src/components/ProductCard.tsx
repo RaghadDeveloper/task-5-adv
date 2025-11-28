@@ -38,7 +38,14 @@ const ProductCard = ({ product }: { product: ProductType }) => {
         <div className="overly position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center gap-4 p-3">
           <h5 className="text-center mt-3 fs-3">{product.name}</h5>
           <div className="d-flex gap-2">
-            <PrimaryButton text="Edit" type="button" />
+            <PrimaryButton
+              text="Edit"
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate(`edit-item/${product.id}`);
+              }}
+            />
             <PrimaryButton
               text="Delete"
               type="button"

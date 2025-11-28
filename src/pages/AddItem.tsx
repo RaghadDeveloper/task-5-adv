@@ -19,7 +19,6 @@ const AddItem = () => {
       const typedKey = key as keyof typeof data;
       formData.append(key, data[typedKey]);
     }
-    console.log("formData", data);
 
     axios
       .post("https://dashboard-i552.onrender.com/api/items", formData, {
@@ -33,9 +32,7 @@ const AddItem = () => {
       .catch((err) => {
         setError(err?.response?.data?.message || "Add item failed.");
       })
-      .finally(() => {
-        setLoading(false);
-      });
+      .finally(() => setLoading(false));
   };
 
   return (

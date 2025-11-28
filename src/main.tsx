@@ -11,6 +11,7 @@ import AppLayout from "./components/AppLayout";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import AddItem from "./pages/AddItem";
+import EditItem from "./pages/EditItem";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
           {
             path: "add-item",
             element: <AddItem />,
+          },
+          {
+            path: "edit-item/:id",
+            element: <EditItem />,
           },
         ],
       },

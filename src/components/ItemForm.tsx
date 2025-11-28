@@ -3,12 +3,19 @@ import { Col, Form, Row } from "react-bootstrap";
 import PrimaryButton from "./PrimaryButton";
 import type { ItemFormData, ItemFormProps } from "../interfaces";
 
-const ItemForm = ({ submitData, loading, error }: ItemFormProps) => {
-  const [data, setData] = useState<ItemFormData>({} as ItemFormData);
-
+const ItemForm = ({
+  initialData,
+  submitData,
+  loading,
+  error,
+}: ItemFormProps) => {
+  const [data, setData] = useState<ItemFormData>({
+    name: initialData?.name ?? "",
+    price: initialData?.price ?? "",
+    image: "",
+  });
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("data form", data);
     submitData(data);
   };
 
@@ -20,10 +27,11 @@ const ItemForm = ({ submitData, loading, error }: ItemFormProps) => {
             <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
+              value={data.name}
               placeholder="Enter the product name"
               onChange={(e) => setData({ ...data, name: e.target.value })}
               disabled={loading}
-              required
+              required={!initialData}
             />
           </Form.Group>
 
@@ -31,10 +39,11 @@ const ItemForm = ({ submitData, loading, error }: ItemFormProps) => {
             <Form.Label>Price</Form.Label>
             <Form.Control
               type="text"
+              value={data.price}
               placeholder="Enter the product price"
               onChange={(e) => setData({ ...data, price: e.target.value })}
               disabled={loading}
-              required
+              required={!initialData}
             />
           </Form.Group>
         </Col>
@@ -49,7 +58,6 @@ const ItemForm = ({ submitData, loading, error }: ItemFormProps) => {
                 setData({ ...data, image: target.files?.[0] ?? "" });
               }}
               disabled={loading}
-              required
             />
           </Form.Group>
         </Col>

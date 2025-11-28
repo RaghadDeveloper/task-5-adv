@@ -70,4 +70,5 @@ export interface ItemFormProps {
   submitData: (data: ItemFormData) => void;
   loading: boolean;
   error: string | null;
+  initialData?: ItemFormData;
 }
