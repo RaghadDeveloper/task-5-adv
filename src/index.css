@@ -151,3 +151,37 @@
   background-color: var(--color-primary) !important;
   border: none;
 }
+
+.custom-file-upload {
+  cursor: pointer !important;
+  border: 1px dashed var(--color-overlay) !important;
+  border-radius: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 5rem;
+  color: var(--color-primary);
+  padding: 3rem;
+  background-color: var(--color-ghost-white);
+  height: 210px;
+
+  img {
+    position: absolute;
+    width: 208px;
+    height: 208px;
+    object-fit: cover;
+  }
+}
+
+.sign-up-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: 2rem;
+
+  img {
+    width: 98px;
+    height: 98px;
+    object-fit: cover;
+  }
+}
