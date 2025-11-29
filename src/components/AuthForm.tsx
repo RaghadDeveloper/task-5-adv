@@ -22,14 +22,14 @@ const AuthForm = ({
 
   return (
     <Form
-      className="d-flex flex-column w-100 gap-4 w-476"
+      className="d-flex flex-column w-100 gap-3 w-476"
       onSubmit={handleSubmit}
     >
-      <Row className="p-0 g-3">
+      <Row className="p-0 g-2">
         {inputs.map((input) =>
           input.row ? (
             input.type === "file" ? (
-              <Row className="p-0 m-0 g-3" key={input.name}>
+              <Row className="p-0 m-0" key={input.name}>
                 <Form.Group controlId="image" className="mb-3 h-100">
                   <Form.Label>Image</Form.Label>
 
@@ -74,7 +74,7 @@ const AuthForm = ({
                 </Form.Group>
               </Row>
             ) : (
-              <Row className="p-0 m-0 g-3" key={input.name}>
+              <Row className="p-0 m-0 g-2" key={input.name}>
                 <Form.Group as={Col} controlId={input.name}>
                   <Form.Label>{input.label}</Form.Label>
                   <Form.Control
@@ -104,7 +104,7 @@ const AuthForm = ({
               as={Col}
               controlId={input.name}
               key={input.name}
-              className="align-self-end w-full"
+              className="align-self-end"
             >
               <Form.Label>{input.label}</Form.Label>
               <Form.Control

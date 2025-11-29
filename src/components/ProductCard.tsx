@@ -1,15 +1,18 @@
 import axios from "axios";
 import type { ProductType } from "../interfaces";
 import PrimaryButton from "./PrimaryButton";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }: { product: ProductType }) => {
   const navigate = useNavigate();
-  const [imgSrc, setImgSrc] = useState(product.image_url);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const imgSrc = product.image_url || "/assets/images/DefautProductImg.png";
 
   const handleDelete = () => {
+    setLoading(true);
     axios
       .delete(`https://dashboard-i552.onrender.com/api/items/${product.id}`, {
         headers: {
@@ -19,14 +22,11 @@ const ProductCard = ({ product }: { product: ProductType }) => {
       .then(() => {
         window.location.reload();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setLoading(false);
+      });
   };
-
-  useEffect(() => {
-    axios.get(product.image_url).catch(() => {
-      setImgSrc("/assets/images/DefautProductImg.png");
-    });
-  }, [product]);
 
   return (
     <>
@@ -66,11 +66,17 @@ const ProductCard = ({ product }: { product: ProductType }) => {
               Are you sure you want to delete the product?
             </p>
             <div className="d-flex gap-5">
-              <PrimaryButton text="Yes" type="button" onClick={handleDelete} />
+              <PrimaryButton
+                text="Yes"
+                type="button"
+                onClick={handleDelete}
+                disabled={loading}
+              />
               <PrimaryButton
                 text="No"
                 type="button"
                 onClick={() => setShowDeleteConfirm(false)}
+                disabled={loading}
               />
             </div>
           </div>

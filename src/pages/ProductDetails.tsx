@@ -11,7 +11,8 @@ const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState<ProductType>();
-  const [imgSrc, setImgSrc] = useState(product?.image_url);
+
+  const imgSrc = product?.image_url || "/assets/images/DefautProductImg.png";
 
   useEffect(() => {
     axios
@@ -26,13 +27,6 @@ const ProductDetails = () => {
       .catch((err) => console.log(err));
   }, [id, setProduct]);
 
-  useEffect(() => {
-    if (!product) return;
-    axios.get(product.image_url).catch(() => {
-      setImgSrc("/assets/images/DefautProductImg.png");
-    });
-  }, [product]);
-
   return (
     <section className="d-flex flex-column w-100 gap-4 mt-3">
       <span
@@ -44,7 +38,7 @@ const ProductDetails = () => {
       <h2 className="fw-bold mt-4">{product?.name}</h2>
       <img src={imgSrc} alt="product image" className="product-img mx-auto" />
       <Row className="d-flex justify-content-center align-items-center gap-5">
-        <ProductInfo label="Price:" value={`${product?.price} $`} />
+        <ProductInfo label="Price:" value={`${product?.price}$`} />
         <ProductInfo
           label="Added at:"
           value={formatDate(product?.created_at || "")}
