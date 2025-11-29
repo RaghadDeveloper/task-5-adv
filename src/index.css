@@ -126,3 +126,28 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.pagination {
+  gap: 1rem !important;
+}
+
+.pagination-btn.disabled span,
+.pagination-btn a,
+.pagination-btn span {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem !important;
+  cursor: pointer !important;
+  color: var(--color-gray-darker);
+  background-color: white !important;
+  z-index: 0 !important;
+}
+
+.pagination-btn.active span {
+  background-color: var(--color-primary) !important;
+  border: none;
+}

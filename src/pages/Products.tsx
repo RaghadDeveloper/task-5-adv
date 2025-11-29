@@ -1,4 +1,4 @@
-import { Col, Form, InputGroup, Row } from "react-bootstrap";
+import { Col, Form, InputGroup, Pagination, Row } from "react-bootstrap";
 import { CiSearch } from "react-icons/ci";
 import PrimaryButton from "../components/PrimaryButton";
 import { useEffect, useState } from "react";
@@ -10,6 +10,24 @@ import { useNavigate } from "react-router-dom";
 const Products = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState<Array<ProductType>>([]);
+  const [searchKey, setSearchKey] = useState("");
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 8;
+
+  const productsToShow = products.filter((product) =>
+    product.name.toLowerCase().includes(searchKey.toLowerCase())
+  );
+
+  const indexOfLast = currentPage * productsPerPage;
+  const indexOfFirst = indexOfLast - productsPerPage;
+  const currentProducts = productsToShow.slice(indexOfFirst, indexOfLast);
+
+  const totalPages = Math.ceil(productsToShow.length / productsPerPage);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchKey]);
 
   useEffect(() => {
     axios
@@ -29,6 +47,8 @@ const Products = () => {
           placeholder="Search product by name "
           aria-label="Search"
           aria-describedby="basic-addon1"
+          value={searchKey}
+          onChange={(e) => setSearchKey(e.target.value)}
         />
         <InputGroup.Text id="basic-addon1">
           <CiSearch />
@@ -46,7 +66,7 @@ const Products = () => {
       </div>
 
       <Row className="row-gap-5  align-items-center justify-content-center mb-5">
-        {products.map((product) => (
+        {currentProducts.map((product) => (
           <Col
             sm={12}
             md={6}
@@ -58,6 +78,33 @@ const Products = () => {
           </Col>
         ))}
       </Row>
+
+      <div className="d-flex justify-content-center mb-5">
+        <Pagination>
+          <Pagination.Prev
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((p) => p - 1)}
+            className="pagination-btn"
+          />
+
+          {[...Array(totalPages).keys()].map((num) => (
+            <Pagination.Item
+              key={num + 1}
+              active={num + 1 === currentPage}
+              onClick={() => setCurrentPage(num + 1)}
+              className="pagination-btn"
+            >
+              {num + 1}
+            </Pagination.Item>
+          ))}
+
+          <Pagination.Next
+            disabled={currentPage === totalPages}
+            className="pagination-btn"
+            onClick={() => setCurrentPage((p) => p + 1)}
+          />
+        </Pagination>
+      </div>
     </div>
   );
 };
