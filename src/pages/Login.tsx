@@ -14,8 +14,6 @@ const Login = () => {
     setLoading(true);
     setError("");
 
-    console.log(data);
-
     axios
       .post("https://dashboard-i552.onrender.com/api/login", data, {
         headers: { "Content-Type": "application/json" },
@@ -23,7 +21,7 @@ const Login = () => {
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("profile_image", res.data.user.profile_image_url);
-        localStorage.setItem("name", res.data.user_name);
+        localStorage.setItem("name", res.data.user.user_name);
         window.location.href = "/";
       })
       .catch((err) => {

@@ -43,7 +43,8 @@ export interface InputField {
 export interface NavItemProps {
   icon: string;
   text: string;
-  path: string;
+  path?: string;
+  onClick?: () => void;
 }
 
 export interface ProductType {
