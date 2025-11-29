@@ -12,6 +12,7 @@ import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
 import AddItem from "./pages/AddItem";
 import EditItem from "./pages/EditItem";
+import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,30 +25,36 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <AppLayout />,
+    element: <PrivateRoute />,
     children: [
       {
-        index: true,
-        element: <Navigate to="products" replace />,
-      },
-      {
-        path: "/products",
+        path: "/",
+        element: <AppLayout />,
         children: [
           {
             index: true,
-            element: <Products />,
+            element: <Navigate to="products" replace />,
           },
           {
-            path: ":id",
-            element: <ProductDetails />,
-          },
-          {
-            path: "add-item",
-            element: <AddItem />,
-          },
-          {
-            path: "edit-item/:id",
-            element: <EditItem />,
+            path: "/products",
+            children: [
+              {
+                index: true,
+                element: <Products />,
+              },
+              {
+                path: ":id",
+                element: <ProductDetails />,
+              },
+              {
+                path: "add-item",
+                element: <AddItem />,
+              },
+              {
+                path: "edit-item/:id",
+                element: <EditItem />,
+              },
+            ],
           },
         ],
       },
