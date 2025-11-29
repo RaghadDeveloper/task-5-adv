@@ -18,7 +18,7 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="d-flex flex-column justify-content-center align-items-center p-5 h-100">
+    <aside className="d-flex flex-column justify-content-center align-items-center py-5 px-4 h-100">
       <img
         src="/assets/images/FullLogo.png"
         alt="logo"

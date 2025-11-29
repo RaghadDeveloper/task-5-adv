@@ -45,9 +45,15 @@ const Products = () => {
         />
       </div>
 
-      <Row className="row-gap-5 align-items-center justify-content-center mb-5">
+      <Row className="row-gap-5  align-items-center justify-content-center mb-5">
         {products.map((product) => (
-          <Col sm={12} md={4} lg={3} key={product.id}>
+          <Col
+            sm={12}
+            md={6}
+            lg={3}
+            key={product.id}
+            className="d-flex justify-content-center align-items-center"
+          >
             <ProductCard product={product} />
           </Col>
         ))}

@@ -31,7 +31,7 @@ const ProductCard = ({ product }: { product: ProductType }) => {
   return (
     <>
       <div
-        className="position-relative product-card rounded-4 d-flex align-items-center overflow-hidden"
+        className="position-relative product-card rounded-4 d-flex justify-content-center align-items-center overflow-hidden"
         onClick={() => navigate(`${product.id}`)}
       >
         <img src={imgSrc} alt="product image" className="h-100 mx-auto" />
